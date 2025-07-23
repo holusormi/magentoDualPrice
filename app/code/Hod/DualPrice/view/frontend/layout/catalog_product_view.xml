@@ -2,6 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <!-- Configure price rendering for product view -->
         <referenceContainer name="product.info.price">
             <block class="Magento\Framework\Pricing\Render"
                    name="product.price.render.default"
@@ -14,9 +15,14 @@
             </block>
         </referenceContainer>
 
+        <!-- Set custom amount template for dual pricing -->
         <referenceBlock name="product.price.render.default">
             <action method="setAmountRenderTemplate">
                 <argument name="price_code" xsi:type="string">final_price</argument>
+                <argument name="template" xsi:type="string">Hod_DualPrice::price/amount/default.phtml</argument>
+            </action>
+            <action method="setAmountRenderTemplate">
+                <argument name="price_code" xsi:type="string">regular_price</argument>
                 <argument name="template" xsi:type="string">Hod_DualPrice::price/amount/default.phtml</argument>
             </action>
         </referenceBlock>
