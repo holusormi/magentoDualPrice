@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.price">
+            <block class="Magento\Framework\Pricing\Render"
+                   name="product.price.render.default"
+                   template="Magento_Catalog::product/price/render/default.phtml"
+                   as="product_price_render_default"
+                   before="-">
+                <arguments>
+                    <argument name="price_render_handle" xsi:type="string">catalog_product_prices</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="product.price.render.default">
+            <action method="setAmountRenderTemplate">
+                <argument name="price_code" xsi:type="string">final_price</argument>
+                <argument name="template" xsi:type="string">Hod_DualPrice::price/amount/default.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

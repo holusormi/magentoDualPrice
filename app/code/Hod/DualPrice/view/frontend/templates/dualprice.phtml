@@ -1,0 +1,20 @@
+<?php
+/** @var \Magento\Catalog\Block\Product\View $block */
+$product = $block->getProduct();
+$price = $product->getFinalPrice();
+
+// Fixed conversion rate
+$conversionRate = 1.95583;
+$euroPrice = $price / $conversionRate;
+
+// Format prices
+$formattedLev = number_format($price, 2, ',', '');
+$formattedEuro = number_format($euroPrice, 2, ',', '');
+
+?>
+
+<span class="price-euro price" >
+    (<?= $formattedEuro ?> €)
+</span>
+<br/>
+<small class="currency-rate">Курс: 1 EUR = 1.95583 BGN</small>

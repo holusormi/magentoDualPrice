@@ -1,0 +1,12 @@
+<?php
+/** @var \Magento\Framework\Pricing\Render\Amount $block */
+$priceValue = $block->getAmount()->getValue();
+$displayValue = $block->getDisplayValue();
+
+$conversionRate = 1.95583;
+$euro = number_format($priceValue / $conversionRate, 2, ',', '');
+?>
+<span class="price">
+    <?= $displayValue ?>
+    <span class="price-euro" style="font-size:90%; color:#777;">(<?= $euro ?> €)</span>
+</span>
