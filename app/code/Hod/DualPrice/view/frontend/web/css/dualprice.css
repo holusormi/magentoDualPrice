@@ -1,0 +1,63 @@
+/* Dual Price Styling */
+.price-box.price-dual-display {
+    margin: 10px 0;
+}
+
+.dual-price-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.price-wrapper.primary-price .price {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.price-wrapper.euro-price .price-euro {
+    font-weight: normal;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.currency-rate-info {
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* Category page specific styling */
+.product-item .price-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.product-item .price-euro-wrapper {
+    white-space: nowrap;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .dual-price-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .price-wrapper.euro-price {
+        margin-left: 0 !important;
+    }
+}
+
+/* Ensure proper spacing in price boxes */
+.price-box .price-container .price-wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.price-euro-wrapper .price-euro {
+    margin-left: 8px;
+}
