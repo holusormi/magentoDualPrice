@@ -13,8 +13,16 @@ $formattedEuro = number_format($euroPrice, 2, ',', '');
 
 ?>
 
-<span class="price-euro price" >
-    (<?= $formattedEuro ?> €)
-</span>
-<br/>
-<small class="currency-rate">Курс: 1 EUR = 1.95583 BGN</small>
+<div class="price-box price-dual-display" data-role="priceBox" data-product-id="<?= $product->getId() ?>">
+    <div class="price-container dual-price-container">
+        <span class="price-wrapper primary-price" data-price-amount="<?= $price ?>" data-price-type="finalPrice">
+            <span class="price"><?= $formattedLev ?> лв.</span>
+        </span>
+        <span class="price-wrapper euro-price" data-price-amount="<?= $euroPrice ?>" data-price-type="euroPrice">
+            <span class="price-euro price" style="margin-left: 8px; color: #666;">(<?= $formattedEuro ?> €)</span>
+        </span>
+    </div>
+    <div class="currency-rate-info" style="font-size: 12px; color: #666; margin-top: 4px;">
+        <small>Курс: 1 EUR = <?= $conversionRate ?> BGN</small>
+    </div>
+</div>
