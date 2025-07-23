@@ -6,7 +6,16 @@ $displayValue = $block->getDisplayValue();
 $conversionRate = 1.95583;
 $euro = number_format($priceValue / $conversionRate, 2, ',', '');
 ?>
-<span class="price">
-    <?= $displayValue ?>
-    <span class="price-euro" style="font-size:90%; color:#777;">(<?= $euro ?> €)</span>
-</span>
+<div class="price-box price-final_price" data-role="priceBox" data-product-id="<?= $block->getSaleableItem()->getId() ?>">
+    <div class="price-container">
+        <span class="price-wrapper" data-price-amount="<?= $priceValue ?>" data-price-type="finalPrice">
+            <span class="price"><?= $displayValue ?></span>
+        </span>
+        <span class="price-wrapper price-euro-wrapper" data-price-amount="<?= $priceValue / $conversionRate ?>" data-price-type="euroPrice">
+            <span class="price-euro" style="font-size:90%; color:#777; margin-left: 8px;">(<?= $euro ?> €)</span>
+        </span>
+    </div>
+    <div class="currency-rate-info" style="font-size: 12px; color: #666; margin-top: 4px;">
+        <small>Курс: 1 EUR = <?= $conversionRate ?> BGN</small>
+    </div>
+</div>
